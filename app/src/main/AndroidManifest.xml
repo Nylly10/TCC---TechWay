@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo"
+        android:label="TechWay"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TechWayTCC"
+        android:usesCleartextTraffic="true">
+
+
+        <activity
+            android:name=".lari.bueno.api.LoginActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
+        <activity
+            android:name=".lari.bueno.MainActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".nylly.AreaTI"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".nylly.AlterarDados"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <activity
+            android:name=".nylly.Perfil"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".nylly.Spinner"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+    </application>
+
+</manifest>

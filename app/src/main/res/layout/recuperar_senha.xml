@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ============================================== -->
+    <!-- FUNDO                                          -->
+    <!-- ============================================== -->
+
+    <com.example.techwaytcc.manu.RecoveryBackgroundView
+        android:id="@+id/recoveryBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <!-- ============================================== -->
+    <!-- CARD                                           -->
+    <!-- ============================================== -->
+
+    <LinearLayout
+        android:id="@+id/cardRecovery"
+        android:layout_width="294dp"
+        android:layout_height="358dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingStart="26dp"
+        android:paddingEnd="26dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="14dp"
+        android:background="@drawable/bg_recovery_card">
+
+
+        <!-- ========================================== -->
+        <!-- LOGO                                       -->
+        <!-- ========================================== -->
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="74dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo"
+            android:contentDescription="Logo Tech Way" />
+
+
+        <!-- ========================================== -->
+        <!-- TÍTULO                                     -->
+        <!-- ========================================== -->
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Recupere a senha"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+
+        <!-- ========================================== -->
+        <!-- EMAIL                                      -->
+        <!-- ========================================== -->
+
+        <LinearLayout
+            android:id="@+id/containerEmail"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_marginTop="9dp"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="3dp"
+            android:background="@drawable/bg_recovery_input">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="17dp"
+                android:text="Email"
+                android:textColor="#17172A"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:background="@null"
+                android:hint="nomedoemail@gmail.com"
+                android:inputType="textEmailAddress"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:textColor="#17172A"
+                android:textColorHint="#99929F"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <!-- ========================================== -->
+        <!-- NOVA SENHA                                 -->
+        <!-- ========================================== -->
+
+        <LinearLayout
+            android:id="@+id/containerNovaSenha"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_marginTop="13dp"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="3dp"
+            android:background="@drawable/bg_recovery_input">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="17dp"
+                android:text="Nova senha"
+                android:textColor="#17172A"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtNovaSenha"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:background="@null"
+                android:hint="••••••••••••"
+                android:inputType="textPassword"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:textColor="#17172A"
+                android:textColorHint="#99929F"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+        <!-- ========================================== -->
+        <!-- CONFIRMAR SENHA                            -->
+        <!-- ========================================== -->
+
+        <LinearLayout
+            android:id="@+id/containerConfirmarSenha"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_marginTop="13dp"
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="3dp"
+            android:background="@drawable/bg_recovery_input">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="17dp"
+                android:text="Confirme a senha"
+                android:textColor="#17172A"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtConfirmarSenha"
+                android:layout_width="match_parent"
+                android:layout_height="23dp"
+                android:background="@null"
+                android:hint="••••••••••••"
+                android:inputType="textPassword"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:textColor="#17172A"
+                android:textColorHint="#99929F"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

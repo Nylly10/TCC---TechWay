@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101728"
+    android:padding="18dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <!-- Essa parte é pra deixar  a logo e a barra de pesquisa ma horizontal, e  a barrinha em baixo    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!--  Essa é a logo do app-->
+        <LinearLayout
+            android:layout_width="49dp"
+            android:layout_height="45dp"
+            android:padding="11dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="9dp"
+            android:background="@drawable/logo">
+        </LinearLayout>
+
+        <!-- Toda a parte da barra de pesquisa o Container e a barra       -->
+        <LinearLayout
+            android:id="@+id/conteiner_Barra"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.SearchView
+
+                android:id="@+id/barra_pesquisa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/barra_arredondada"
+                android:gravity="center"
+                android:padding="11dp"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@null"
+                app:queryHint="Buscar" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--  A parte da barrinha branca =(-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:background="#FFFFFF" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="63dp"
+            android:layout_height="49dp"
+            android:src="@drawable/tres_linhas1"
+            android:scaleType="centerInside"
+            android:padding="15dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/white" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 1 -->
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Teste"/>
+
+                <!-- 2 -->
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resultado" />
+
+                <!-- 3 -->
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Áreas em TI" />
+
+                <!-- 4 -->
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cursos" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Suporte e Feedback"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:padding="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:paddingTop="37dp"
+        android:paddingStart="28dp"
+        android:background="@drawable/barra_arredondada2">
+
+        <Button
+            android:layout_width="128dp"
+            android:layout_height="79dp"
+            android:text="Enviar feedbacks"
+            android:background="@drawable/bara_aredada3"/>
+
+        <Button
+            android:layout_width="128dp"
+            android:layout_height="79dp"
+            android:layout_marginStart="55dp"
+            android:text="Fale com o suporte"
+            android:background="@drawable/bara_aredada3"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="289dp"
+        android:layout_marginTop="42dp"
+        android:paddingStart="28dp"
+        android:orientation="vertical"
+        android:background="@drawable/barra_arredondada2">
+
+        <Button
+            android:id="@+id/duvidas"
+            android:layout_width="198dp"
+            android:layout_height="46dp"
+            android:text="Dúvidas frequentes"
+            android:textAlignment="center"
+            android:textSize="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="55dp"/>
+
+        <Button
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="20dp"
+            android:text="O teste é gratuito?            ▼"
+            android:textSize="14dp"
+            />
+
+        <Button
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="20dp"
+            android:text="Preciso saber programar? ▼"
+            android:textAlignment="center"
+            android:textSize="14dp"
+            />
+
+        <Button
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="20dp"
+            android:text="Posso mudar de área?       ▼"
+            android:textAlignment="center"
+            android:textSize="14dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

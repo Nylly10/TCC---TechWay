@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- fundo -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#101728"/>
+        </shape>
+    </item>
+
+    <!-- faixa roxa -->
+    <item>
+        <vector
+            android:width="505dp"
+            android:height="786dp"
+            android:viewportWidth="505"
+            android:viewportHeight="786">
+
+            <path
+                android:fillColor="#C8C0D0"
+                android:pathData="
+                    M0,255
+                    C80,235 165,195 225,115
+                    C290,30 350,0 505,0
+
+                    L505,430
+
+                    C430,465 365,530 320,610
+                    C275,675 220,705 150,735
+                    C90,760 40,785 0,735
+
+                    Z" />
+
+        </vector>
+    </item>
+
+</layer-list>
+
+    <!-- <?xml version="1.0" encoding="utf-8"?>
+  <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item>
+  <shape android:shape="rectangle">
+      <solid android:color="#101728"/>
+  </shape>
+  </item>
+
+
+  <item>
+  <vector
+      android:width="1080dp"
+      android:height="1920dp"
+      android:viewportWidth="1080"
+      android:viewportHeight="1920">
+
+      <path
+          android:fillColor="#C8BED0"
+          android:pathData="M0,850
+                   C180,790 350,720 500,520
+                  C650,320 850,180 1080,120
+                  L1080,1920
+                  L0,1920 Z" />
+
+  </vector>
+  </item>
+
+      </layer-list> -->

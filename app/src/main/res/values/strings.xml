@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TechWay TCC</string>
+    <string name="logo_description">logo</string>
+    <string name="buscar">Buscar</string>
+    <string name="nome_perfil">João da Silva</string>
+    <string name="email_perfil">joao@email.com</string>
+
+    <string-array name="opcoes_genero">
+        <item>Selecione</item>
+        <item>Feminino</item>
+        <item>Masculino</item>
+        <item>Prefiro não informar</item>
+        </string-array>
+
+
+    </resources>

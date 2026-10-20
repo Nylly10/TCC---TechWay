@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#101728"
+    android:padding="18dp"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Essa parte é pra deixar  a logo e a barra de pesquisa ma horizontal, e  a barrinha em baixo    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!--  Essa é a logo do app-->
+        <LinearLayout
+            android:layout_width="49dp"
+            android:layout_height="45dp"
+            android:padding="11dp"
+            android:orientation="horizontal"
+            android:layout_marginStart="9dp"
+            android:background="@drawable/logo">
+        </LinearLayout>
+
+        <!-- Toda a parte da barra de pesquisa o Container e a barra       -->
+        <LinearLayout
+            android:id="@+id/conteiner_Barra2"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.SearchView
+
+                android:id="@+id/barra_pesquisa2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/barra_arredondada"
+                android:gravity="center"
+                android:padding="11dp"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@null"
+                app:queryHint="Buscar" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--  A parte da barrinha branca =(-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:background="#FFFFFF" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="63dp"
+            android:layout_height="49dp"
+            android:src="@drawable/tres_linhas1"
+            android:scaleType="centerInside"
+            android:padding="15dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/white" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 1 -->
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Teste"/>
+
+                <!-- 2 -->
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resultado" />
+
+                <!-- 3 -->
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Áreas em TI" />
+
+                <!-- 4 -->
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cursos" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:background="#FFFFFF" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:layout_width="175dp"
+                android:layout_height="135dp"
+                android:background="@drawable/bara_aredada3"
+                android:layout_marginTop="38dp"
+                android:padding="22dp"
+                android:layout_marginBottom="17dp"
+                android:layout_marginEnd="18dp"
+                android:text="Encontre sua\ncarreira \naqui! "
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:layout_width="175dp"
+                android:layout_height="135dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="17dp"
+                android:background="@drawable/barra_arredondada2"
+                android:padding="22dp"
+                android:text="Usuarios ativos no app \n10.553"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/barra_arredondada2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Blog"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="27dp"
+            android:paddingTop="26dp"
+            android:paddingStart="26dp"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="26dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/grafico" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
