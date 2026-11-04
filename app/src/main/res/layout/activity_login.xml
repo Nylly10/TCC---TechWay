@@ -22,9 +22,10 @@
         <ImageView
             android:id="@+id/imgLogo"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:contentDescription="Logo TechWay"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:layout_margin="15dp"/>
 
     </LinearLayout>
 
@@ -105,7 +106,7 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/bg_button_entrar"
-                android:text="entrar"
+                android:text="Entrar"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -124,7 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:gravity="center"
-                android:text="Nao tem login?"
+                android:text="Não tem conta?"
                 android:textColor="#2E1A6B"
                 android:textSize="14sp" />
 
@@ -134,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingTop="2dp"
-                android:text="clique aqui"
+                android:text="Clique aqui"
                 android:textColor="#2E1A6B"
                 android:textSize="14sp"
                 android:textStyle="bold" />

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import com.example.techwaytcc.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ResultadoTesteActivity extends AppCompatActivity {

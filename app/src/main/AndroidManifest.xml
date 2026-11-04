@@ -2,7 +2,6 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -17,8 +16,13 @@
         android:usesCleartextTraffic="true">
 
 
+        <!-- Tela principal: BLOG -->
         <activity
-            android:name=".lari.bueno.api.LoginActivity"
+            android:name="com.example.techwaytcc.carol.BlogActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.techwaytcc.lari.bueno.api.LoginActivity"
             android:exported="true">
 
             <intent-filter>
@@ -28,38 +32,24 @@
 
         </activity>
 
-
-        <activity
-            android:name=".lari.bueno.MainActivity"
-            android:exported="false" />
-
-
         <activity
             android:name=".nylly.AreaTI"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".nylly.AlterarDados"
-            android:exported="true"
+            android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-
 
         <activity
             android:name=".nylly.Perfil"
-            android:exported="true"
+            android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".nylly.Spinner"
-            android:exported="true"
+            android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
     </application>
