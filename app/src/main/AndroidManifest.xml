@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TechWayTCC"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name="com.example.techwaytcc.carol.MainActivity1"
+            android:exported="false" />
 
         <!-- Tela principal: BLOG -->
         <activity

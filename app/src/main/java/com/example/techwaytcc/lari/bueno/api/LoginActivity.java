@@ -1,17 +1,22 @@
 package com.example.techwaytcc.lari.bueno.api;
 
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.techwaytcc.R;
 import com.example.techwaytcc.carol.BlogActivity;
 import com.example.techwaytcc.carol.MainActivity1;
 import com.example.techwaytcc.lari.bueno.model.LoginRequest;
 import com.example.techwaytcc.lari.bueno.model.LoginResponse;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,7 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         // Acesso à tela de cadastro
         txtCliqueAqui.setOnClickListener(v -> {
             Intent intent = new Intent(
-                    LoginActivity.this, MainActivity1.class);
+                    LoginActivity.this,
+                    MainActivity1.class
+            );
+
             startActivity(intent);
         });
     }
