@@ -63,6 +63,7 @@
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/btnMenu"
             android:layout_width="63dp"
             android:layout_height="49dp"
             android:src="@drawable/tres_linhas1"
@@ -83,29 +84,29 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <!-- 1 -->
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTeste"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Teste"/>
+                    android:text="Teste" />
 
-                <!-- 2 -->
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipResultado"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Resultado" />
 
-                <!-- 3 -->
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAreas"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Áreas em TI" />
 
-                <!-- 4 -->
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCursos"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

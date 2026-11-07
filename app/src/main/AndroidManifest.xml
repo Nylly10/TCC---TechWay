@@ -53,6 +53,9 @@
             android:name=".nylly.Spinner"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".carol.TesteActivity"
+            android:exported="false" />
 
     </application>
 
