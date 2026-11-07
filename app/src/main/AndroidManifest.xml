@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TechWayTCC"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name="com.example.techwaytcc.carol.MainActivity1"
             android:exported="false" />
@@ -49,12 +50,22 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- Teste vocacional e resultado -->
         <activity
-            android:name=".nylly.Spinner"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:name="com.example.techwaytcc.manu.MainActivity"
+            android:exported="false" />
+
         <activity
-            android:name=".carol.TesteActivity"
+            android:name="com.example.techwaytcc.manu.ResultadoTesteActivity"
+            android:exported="false" />
+
+        <!-- Cursos e Faculdades -->
+        <activity
+            android:name="com.example.techwaytcc.lari.bueno.CursoActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.techwaytcc.lari.bueno.FaculdadesActivity"
             android:exported="false" />
 
     </application>

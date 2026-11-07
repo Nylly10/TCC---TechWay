@@ -1,12 +1,11 @@
-
 package com.example.techwaytcc.carol;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.techwaytcc.Navegacao;
 import com.example.techwaytcc.R;
 import com.google.android.material.chip.Chip;
 
@@ -31,29 +30,11 @@ public class BlogActivity extends AppCompatActivity {
         chipAreas = findViewById(R.id.chipAreas);
         chipCursos = findViewById(R.id.chipCursos);
 
-        // Abrir Teste Vocacional
-        chipTeste.setOnClickListener(v -> {
-            Intent intent = new Intent(
-                    BlogActivity.this,
-                    TesteActivity.class
-            );
-            startActivity(intent);
-        });
-
-        // Resultado
-        chipResultado.setOnClickListener(v -> {
-            // Conectar quando criar ResultadoActivity
-        });
-
-        // Áreas em TI
-        chipAreas.setOnClickListener(v -> {
-            // Conectar quando criar AreasActivity
-        });
-
-        // Cursos
-        chipCursos.setOnClickListener(v -> {
-            // Conectar quando criar CursosActivity
-        });
+        // Botões de cima: o Blog não é uma das abas, por isso a "tela atual" é -1
+        Navegacao.ligar(this, -1, chipTeste, Navegacao.TESTE);
+        Navegacao.ligar(this, -1, chipResultado, Navegacao.RESULTADO);
+        Navegacao.ligar(this, -1, chipAreas, Navegacao.AREAS);
+        Navegacao.ligar(this, -1, chipCursos, Navegacao.CURSOS);
 
         // Menu
         btnMenu.setOnClickListener(v -> {

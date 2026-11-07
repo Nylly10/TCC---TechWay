@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.techwaytcc.Navegacao;
 import com.example.techwaytcc.R;
 
 public class AreaTI extends AppCompatActivity {
@@ -73,6 +74,12 @@ public class AreaTI extends AppCompatActivity {
         btnBancoDados = findViewById(R.id.btnDesing);
         conteudoBancoDados = findViewById(R.id.conteudoDesign);
 
+        // Botões de cima
+        Navegacao.ligar(this, Navegacao.AREAS, findViewById(R.id.chipTeste), Navegacao.TESTE);
+        Navegacao.ligar(this, Navegacao.AREAS, findViewById(R.id.chipResultado), Navegacao.RESULTADO);
+        Navegacao.ligar(this, Navegacao.AREAS, findViewById(R.id.chipAreas), Navegacao.AREAS);
+        Navegacao.ligar(this, Navegacao.AREAS, findViewById(R.id.chipCursos), Navegacao.CURSOS);
+
         btnProgramacao.setOnClickListener(v -> {
             boolean abrir =
                     conteudoProgramacao.getVisibility() == View.GONE;
@@ -133,8 +140,6 @@ public class AreaTI extends AppCompatActivity {
         btnBancoDados.setOnClickListener(v ->
                 alternarConteudo(conteudoBancoDados));
     }
-
-
 
     private void alternarConteudo(LinearLayout conteudoSelecionado) {
         boolean deveAbrir =

@@ -68,24 +68,28 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTeste"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Teste" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipResultado"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Resultado" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAreas"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Áreas em TI" />
 
                 <com.google.android.material.chip.Chip
+                    android:id="@+id/chipCursos"
                     style="@style/Widget.MaterialComponents.Chip.Choice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

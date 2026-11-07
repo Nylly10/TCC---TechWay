@@ -1,4 +1,3 @@
-
 package com.example.techwaytcc.carol;
 
 import android.os.Bundle;
@@ -14,6 +13,8 @@ import com.example.techwaytcc.R;
 import com.example.techwaytcc.lari.bueno.api.ApiService;
 import com.example.techwaytcc.lari.bueno.api.RetrofitCliente;
 import com.example.techwaytcc.lari.bueno.model.CadastroRequest;
+
+import org.json.JSONObject;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -87,31 +88,63 @@ public class MainActivity1 extends AppCompatActivity {
 
                 btnCadastrar.setEnabled(true);
 
-                try {
-                    String resposta = "";
+                String resposta = "";
 
+                try {
                     if (response.body() != null) {
                         resposta = response.body().string();
                     } else if (response.errorBody() != null) {
                         resposta = response.errorBody().string();
                     }
 
+                    JSONObject json = new JSONObject(resposta);
+
+                    boolean sucesso = json.optBoolean("sucesso", false);
+                    String mensagem = json.optString(
+                            "mensagem",
+                            "Resposta inesperada do servidor"
+                    );
+
+                    if (sucesso) {
+
+                        Toast.makeText(
+                                MainActivity1.this,
+                                "Cadastro realizado! Bem-vindo(a)!",
+                                Toast.LENGTH_SHORT
+                        ).show();
+
+                        // Entra direto no app, sem passar pelo login
+                        Intent intent = new Intent(
+                                MainActivity1.this,
+                                BlogActivity.class
+                        );
+                        intent.addFlags(
+                                Intent.FLAG_ACTIVITY_NEW_TASK
+                                        | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        );
+                        startActivity(intent);
+                        finish();
+
+                    } else {
+
+                        Toast.makeText(
+                                MainActivity1.this,
+                                mensagem,
+                                Toast.LENGTH_LONG
+                        ).show();
+                    }
+
+                } catch (Exception e) {
+
+                    // Resposta que não é JSON: mostra o conteúdo para conferir
                     new androidx.appcompat.app.AlertDialog.Builder(MainActivity1.this)
                             .setTitle("Resposta do servidor")
                             .setMessage(
                                     "HTTP: " + response.code()
-                                            + "\n\nTamanho da resposta: " + resposta.length()
                                             + "\n\nConteúdo:\n[" + resposta + "]"
                             )
                             .setPositiveButton("OK", null)
                             .show();
-
-                } catch (Exception e) {
-                    Toast.makeText(
-                            MainActivity1.this,
-                            "Erro: " + e.getMessage(),
-                            Toast.LENGTH_LONG
-                    ).show();
                 }
             }
 

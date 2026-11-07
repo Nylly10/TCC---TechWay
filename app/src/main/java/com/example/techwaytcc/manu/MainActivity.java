@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.techwaytcc.Navegacao;
 import com.example.techwaytcc.R;
 
 import java.util.ArrayList;
@@ -44,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int perguntaAtual = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -60,9 +61,13 @@ public class MainActivity extends AppCompatActivity {
 
         configurarCliques();
 
+        // Botões de cima
+        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.menuTeste), Navegacao.TESTE);
+        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.menuResultado), Navegacao.RESULTADO);
+        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.menuAreas), Navegacao.AREAS);
+
         atualizarTela();
     }
-
 
     // =========================================================
     // PERGUNTAS
@@ -72,162 +77,72 @@ public class MainActivity extends AppCompatActivity {
 
         perguntas = new ArrayList<>();
 
-        // -----------------------------------------------------
         // DESIGN UI/UX
-        // -----------------------------------------------------
+        perguntas.add(new Pergunta(
+                "Gosto de criar interfaces visualmente organizadas e agradáveis.",
+                Pergunta.UI_UX));
+        perguntas.add(new Pergunta(
+                "Tenho interesse em entender como as pessoas interagem com aplicativos e sites.",
+                Pergunta.UI_UX));
+        perguntas.add(new Pergunta(
+                "Gosto de pensar em maneiras de tornar uma experiência digital mais simples e intuitiva.",
+                Pergunta.UI_UX));
 
-        perguntas.add(
-                new Pergunta(
-                        "Gosto de criar interfaces visualmente organizadas e agradáveis.",
-                        Pergunta.UI_UX
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Tenho interesse em entender como as pessoas interagem com aplicativos e sites.",
-                        Pergunta.UI_UX
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Gosto de pensar em maneiras de tornar uma experiência digital mais simples e intuitiva.",
-                        Pergunta.UI_UX
-                )
-        );
-
-
-        // -----------------------------------------------------
         // PROGRAMAÇÃO
-        // -----------------------------------------------------
+        perguntas.add(new Pergunta(
+                "Gosto de resolver problemas utilizando lógica e raciocínio.",
+                Pergunta.PROGRAMACAO));
+        perguntas.add(new Pergunta(
+                "Tenho interesse em criar aplicativos, sistemas ou programas.",
+                Pergunta.PROGRAMACAO));
+        perguntas.add(new Pergunta(
+                "Tenho curiosidade em entender como os códigos funcionam por trás de uma aplicação.",
+                Pergunta.PROGRAMACAO));
 
-        perguntas.add(
-                new Pergunta(
-                        "Gosto de resolver problemas utilizando lógica e raciocínio.",
-                        Pergunta.PROGRAMACAO
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Tenho interesse em criar aplicativos, sistemas ou programas.",
-                        Pergunta.PROGRAMACAO
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Tenho curiosidade em entender como os códigos funcionam por trás de uma aplicação.",
-                        Pergunta.PROGRAMACAO
-                )
-        );
-
-
-        // -----------------------------------------------------
         // CIÊNCIA DE DADOS
-        // -----------------------------------------------------
+        perguntas.add(new Pergunta(
+                "Gosto de analisar informações para encontrar padrões.",
+                Pergunta.CIENCIA_DADOS));
+        perguntas.add(new Pergunta(
+                "Tenho interesse em trabalhar com números, estatísticas e dados.",
+                Pergunta.CIENCIA_DADOS));
+        perguntas.add(new Pergunta(
+                "Gosto de utilizar informações para chegar a conclusões e tomar decisões.",
+                Pergunta.CIENCIA_DADOS));
 
-        perguntas.add(
-                new Pergunta(
-                        "Gosto de analisar informações para encontrar padrões.",
-                        Pergunta.CIENCIA_DADOS
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Tenho interesse em trabalhar com números, estatísticas e dados.",
-                        Pergunta.CIENCIA_DADOS
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Gosto de utilizar informações para chegar a conclusões e tomar decisões.",
-                        Pergunta.CIENCIA_DADOS
-                )
-        );
-
-
-        // -----------------------------------------------------
         // SEGURANÇA DA INFORMAÇÃO
-        // -----------------------------------------------------
+        perguntas.add(new Pergunta(
+                "Tenho interesse em descobrir vulnerabilidades e proteger sistemas.",
+                Pergunta.SEGURANCA));
+        perguntas.add(new Pergunta(
+                "Gosto de pensar em maneiras de evitar acessos não autorizados.",
+                Pergunta.SEGURANCA));
+        perguntas.add(new Pergunta(
+                "Tenho interesse em privacidade, proteção de dados e segurança digital.",
+                Pergunta.SEGURANCA));
 
-        perguntas.add(
-                new Pergunta(
-                        "Tenho interesse em descobrir vulnerabilidades e proteger sistemas.",
-                        Pergunta.SEGURANCA
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Gosto de pensar em maneiras de evitar acessos não autorizados.",
-                        Pergunta.SEGURANCA
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Tenho interesse em privacidade, proteção de dados e segurança digital.",
-                        Pergunta.SEGURANCA
-                )
-        );
-
-
-        // -----------------------------------------------------
         // SISTEMAS EMBARCADOS
-        // -----------------------------------------------------
+        perguntas.add(new Pergunta(
+                "Tenho interesse em entender como dispositivos eletrônicos funcionam.",
+                Pergunta.SISTEMAS_EMBARCADOS));
+        perguntas.add(new Pergunta(
+                "Gosto da ideia de programar equipamentos, sensores ou dispositivos inteligentes.",
+                Pergunta.SISTEMAS_EMBARCADOS));
+        perguntas.add(new Pergunta(
+                "Tenho curiosidade sobre tecnologias que unem hardware e software.",
+                Pergunta.SISTEMAS_EMBARCADOS));
 
-        perguntas.add(
-                new Pergunta(
-                        "Tenho interesse em entender como dispositivos eletrônicos funcionam.",
-                        Pergunta.SISTEMAS_EMBARCADOS
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Gosto da ideia de programar equipamentos, sensores ou dispositivos inteligentes.",
-                        Pergunta.SISTEMAS_EMBARCADOS
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Tenho curiosidade sobre tecnologias que unem hardware e software.",
-                        Pergunta.SISTEMAS_EMBARCADOS
-                )
-        );
-
-
-        // -----------------------------------------------------
         // BANCO DE DADOS
-        // -----------------------------------------------------
-
-        perguntas.add(
-                new Pergunta(
-                        "Gosto de organizar grandes quantidades de informações.",
-                        Pergunta.BANCO_DADOS
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Tenho interesse em entender como os dados são armazenados e consultados.",
-                        Pergunta.BANCO_DADOS
-                )
-        );
-
-        perguntas.add(
-                new Pergunta(
-                        "Gosto de trabalhar com estruturas organizadas para facilitar o acesso às informações.",
-                        Pergunta.BANCO_DADOS
-                )
-        );
+        perguntas.add(new Pergunta(
+                "Gosto de organizar grandes quantidades de informações.",
+                Pergunta.BANCO_DADOS));
+        perguntas.add(new Pergunta(
+                "Tenho interesse em entender como os dados são armazenados e consultados.",
+                Pergunta.BANCO_DADOS));
+        perguntas.add(new Pergunta(
+                "Gosto de trabalhar com estruturas organizadas para facilitar o acesso às informações.",
+                Pergunta.BANCO_DADOS));
     }
-
 
     // =========================================================
     // INICIALIZAÇÃO DOS COMPONENTES
@@ -236,9 +151,7 @@ public class MainActivity extends AppCompatActivity {
     private void inicializarComponentes() {
 
         txtPergunta = findViewById(R.id.txtPergunta);
-
-        txtNumeroPergunta =
-                findViewById(R.id.txtNumeroPergunta);
+        txtNumeroPergunta = findViewById(R.id.txtNumeroPergunta);
 
         opcao1 = findViewById(R.id.opcao1);
         opcao2 = findViewById(R.id.opcao2);
@@ -246,16 +159,11 @@ public class MainActivity extends AppCompatActivity {
         opcao4 = findViewById(R.id.opcao4);
         opcao5 = findViewById(R.id.opcao5);
 
-        btnAnterior =
-                findViewById(R.id.btnAnterior);
+        btnAnterior = findViewById(R.id.btnAnterior);
+        btnProximo = findViewById(R.id.btnProximo);
 
-        btnProximo =
-                findViewById(R.id.btnProximo);
-
-        progresso =
-                findViewById(R.id.progresso);
+        progresso = findViewById(R.id.progresso);
     }
-
 
     // =========================================================
     // CLIQUES
@@ -263,37 +171,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void configurarCliques() {
 
-        opcao1.setOnClickListener(
-                v -> selecionarResposta(1)
-        );
+        // Escala: 5 = Concordo totalmente ... 1 = Discordo totalmente
+        // (a ordem dos botões na tela é essa mesma, de cima para baixo)
+        opcao1.setOnClickListener(v -> selecionarResposta(5));
+        opcao2.setOnClickListener(v -> selecionarResposta(4));
+        opcao3.setOnClickListener(v -> selecionarResposta(3));
+        opcao4.setOnClickListener(v -> selecionarResposta(2));
+        opcao5.setOnClickListener(v -> selecionarResposta(1));
 
-        opcao2.setOnClickListener(
-                v -> selecionarResposta(2)
-        );
+        btnAnterior.setOnClickListener(v -> voltarPergunta());
 
-        opcao3.setOnClickListener(
-                v -> selecionarResposta(3)
-        );
-
-        opcao4.setOnClickListener(
-                v -> selecionarResposta(4)
-        );
-
-        opcao5.setOnClickListener(
-                v -> selecionarResposta(5)
-        );
-
-
-        btnAnterior.setOnClickListener(
-                v -> voltarPergunta()
-        );
-
-
-        btnProximo.setOnClickListener(
-                v -> proximaPergunta()
-        );
+        btnProximo.setOnClickListener(v -> proximaPergunta());
     }
-
 
     // =========================================================
     // SELECIONAR RESPOSTA
@@ -306,74 +195,35 @@ public class MainActivity extends AppCompatActivity {
         atualizarOpcoes();
     }
 
-
     // =========================================================
     // ATUALIZAR VISUAL DAS OPÇÕES
     // =========================================================
 
     private void atualizarOpcoes() {
 
-        opcao1.setBackgroundResource(
-                R.drawable.bg_option
-        );
+        TextView[] opcoes = {opcao1, opcao2, opcao3, opcao4, opcao5};
 
-        opcao2.setBackgroundResource(
-                R.drawable.bg_option
-        );
+        String[] textos = {
+                "Concordo totalmente",
+                "Concordo",
+                "Neutro",
+                "Discordo",
+                "Discordo totalmente"
+        };
 
-        opcao3.setBackgroundResource(
-                R.drawable.bg_option
-        );
+        int[] valores = {5, 4, 3, 2, 1};
 
-        opcao4.setBackgroundResource(
-                R.drawable.bg_option
-        );
+        for (int i = 0; i < opcoes.length; i++) {
 
-        opcao5.setBackgroundResource(
-                R.drawable.bg_option
-        );
+            boolean marcada = respostas[perguntaAtual] == valores[i];
 
-
-        int resposta =
-                respostas[perguntaAtual];
-
-
-        if (resposta == 1) {
-
-            opcao1.setBackgroundResource(
-                    R.drawable.bg_option_selected
+            opcoes[i].setBackgroundResource(
+                    marcada ? R.drawable.bg_option_selected : R.drawable.bg_option
             );
-        }
 
-        if (resposta == 2) {
-
-            opcao2.setBackgroundResource(
-                    R.drawable.bg_option_selected
-            );
-        }
-
-        if (resposta == 3) {
-
-            opcao3.setBackgroundResource(
-                    R.drawable.bg_option_selected
-            );
-        }
-
-        if (resposta == 4) {
-
-            opcao4.setBackgroundResource(
-                    R.drawable.bg_option_selected
-            );
-        }
-
-        if (resposta == 5) {
-
-            opcao5.setBackgroundResource(
-                    R.drawable.bg_option_selected
-            );
+            opcoes[i].setText((marcada ? "●  " : "○  ") + textos[i]);
         }
     }
-
 
     // =========================================================
     // ATUALIZAR A PERGUNTA
@@ -381,30 +231,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void atualizarTela() {
 
-        Pergunta pergunta =
-                perguntas.get(perguntaAtual);
+        Pergunta pergunta = perguntas.get(perguntaAtual);
 
-
-        txtPergunta.setText(
-                pergunta.getTexto()
-        );
-
+        txtPergunta.setText(pergunta.getTexto());
 
         txtNumeroPergunta.setText(
-                (perguntaAtual + 1)
-                        + " de "
-                        + perguntas.size()
+                (perguntaAtual + 1) + " de " + perguntas.size()
         );
 
-
-        progresso.setProgress(
-                perguntaAtual + 1
-        );
-
+        progresso.setProgress(perguntaAtual + 1);
 
         atualizarOpcoes();
     }
-
 
     // =========================================================
     // PRÓXIMA PERGUNTA
@@ -412,19 +250,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void proximaPergunta() {
 
-        /*
-         * Não permite avançar sem responder.
-         */
-
+        // Não permite avançar sem responder
         if (respostas[perguntaAtual] == 0) {
+            Toast.makeText(
+                    this,
+                    "Escolha uma resposta para continuar",
+                    Toast.LENGTH_SHORT
+            ).show();
             return;
         }
 
-
-        if (
-                perguntaAtual <
-                        perguntas.size() - 1
-        ) {
+        if (perguntaAtual < perguntas.size() - 1) {
 
             perguntaAtual++;
 
@@ -435,7 +271,6 @@ public class MainActivity extends AppCompatActivity {
             abrirResultado();
         }
     }
-
 
     // =========================================================
     // VOLTAR
@@ -455,25 +290,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     // =========================================================
     // ABRIR RESULTADO
     // =========================================================
 
     private void abrirResultado() {
 
-        Intent intent =
-                new Intent(
-                        MainActivity.this,
-                        ResultadoTesteActivity.class
-                );
-
-
-        intent.putExtra(
-                "respostas",
-                respostas
+        Intent intent = new Intent(
+                MainActivity.this,
+                ResultadoTesteActivity.class
         );
 
+        intent.putExtra("respostas", respostas);
+
+        // Guarda as respostas para a aba "Resultado" funcionar depois
+        Navegacao.salvarRespostas(this, respostas);
 
         startActivity(intent);
     }
