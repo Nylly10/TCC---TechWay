@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DED7E0">
+    android:background="#101728">
 
 
     <LinearLayout
@@ -21,18 +21,18 @@
 
         <ImageView
             android:id="@+id/imgLogo"
-            android:layout_width="150dp"
+            android:layout_width="151dp"
             android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
             android:contentDescription="Logo TechWay"
-            android:src="@drawable/logo"
-            android:layout_margin="15dp"/>
+            android:src="@drawable/logo" />
 
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="-40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,15 +54,17 @@
                 android:gravity="center"
                 android:text="Login"
                 android:textColor="#2E1A6B"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:layout_width="51dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="Email"
+                android:textStyle="bold"
                 android:textColor="#2E1A6B"
-                android:textSize="14sp" />
+                android:textSize="16sp"/>
 
             <EditText
                 android:id="@+id/edtEmail"
@@ -75,8 +77,9 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:textColor="#2E1A6B"
+                android:textStyle="bold"
                 android:textColorHint="#9C93B0"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="53dp"
@@ -84,7 +87,8 @@
                 android:layout_marginTop="20dp"
                 android:text="Senha"
                 android:textColor="#2E1A6B"
-                android:textSize="14sp" />
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/edtSenha"
@@ -92,25 +96,25 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_input_field"
-                android:hint="**********"
+                android:hint="12345@A"
                 android:inputType="textPassword"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:textColor="#2E1A6B"
                 android:textColorHint="#9C93B0"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/btnEntrar"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/bg_button_entrar"
                 android:text="Entrar"
+                android:backgroundTint="#120037"
                 android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20sp"/>
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -124,7 +128,7 @@
                 android:id="@+id/txtNaoTemConta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:text="Não tem conta?"
                 android:textColor="#2E1A6B"

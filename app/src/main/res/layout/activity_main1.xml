@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="22dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical"
         android:background="@drawable/campo_arredondado_exterior"
         android:elevation="8dp"
@@ -24,11 +24,12 @@
 
         <ImageView
             android:id="@+id/logoTechWay"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             android:src="@drawable/logo"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:layout_margin="10dp"/>
 
 
         <TextView
@@ -41,53 +42,94 @@
             android:textColor="@color/white"
             android:paddingBottom="12dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Digite seu nome completo"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="5dp"/>
+
         <EditText
             android:id="@+id/editname"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:hint="Nome"
+            android:hint="ex: Larissa Suzart Medeiros"
             android:inputType="textPersonName"
             android:padding="12dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/campo_arredondado"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Digite seu E-mail"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="5dp"/>
+
         <EditText
             android:id="@+id/editemail"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:hint="Email"
+            android:hint="ex: nomedoemail@gmail.com"
             android:inputType="textEmailAddress"
             android:padding="12dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/campo_arredondado"/>
 
+        <TextView
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Senha"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="5dp"/>
+
         <EditText
             android:id="@+id/editsenha"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:hint="Senha"
+            android:hint="ex: 12345@A"
             android:inputType="textPassword"
             android:padding="12dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/campo_arredondado"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Confirme sua senha"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingBottom="5dp"/>
+
         <EditText
             android:id="@+id/editconfsenha"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:hint="Confirme a senha"
+            android:hint="Esecreva novamente sua senha"
             android:inputType="textPassword"
             android:padding="12dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/campo_arredondado"/>
+
         <Button
             android:id="@+id/btnCadastrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="Cadastrar"
             android:textColor="#ffff"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textAllCaps="false"
             android:backgroundTint="#120037" />

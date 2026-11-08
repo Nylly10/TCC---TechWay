@@ -35,7 +35,7 @@
             <androidx.appcompat.widget.SearchView
 
                 android:id="@+id/barra_pesquisa2"
-                android:layout_width="match_parent"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/barra_arredondada"
                 android:gravity="center"
@@ -61,16 +61,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/btnMenu"
-            android:layout_width="63dp"
-            android:layout_height="49dp"
-            android:src="@drawable/tres_linhas1"
-            android:scaleType="centerInside"
-            android:padding="15dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:tint="@color/white" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"

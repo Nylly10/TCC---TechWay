@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#141522">
+    android:background="#101728"
+    android:padding="18dp"
+    android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
@@ -18,79 +20,111 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <LinearLayout
-                android:id="@+id/topBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="16dp"
-                android:paddingTop="48dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="12dp">
+                android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/logo"
-                    android:contentDescription="Logo TechWay" />
+                <!--  Essa é a logo do app-->
+                <LinearLayout
+                    android:layout_width="49dp"
+                    android:layout_height="45dp"
+                    android:padding="11dp"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="9dp"
+                    android:background="@drawable/logo">
+                </LinearLayout>
 
-                <EditText
-                    android:id="@+id/edtBuscar"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_search_field"
-                    android:drawableEnd="@android:drawable/ic_menu_search"
-                    android:hint="Buscar"
-                    android:inputType="text"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="12dp"
-                    android:textColor="#141522"
-                    android:textColorHint="#8A8496"
-                    android:textSize="14sp" />
+                <!-- Toda a parte da barra de pesquisa o Container e a barra       -->
+                <LinearLayout
+                    android:id="@+id/conteiner_Barra2"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:layout_marginLeft="25dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.SearchView
+
+                        android:id="@+id/barra_pesquisa2"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/barra_arredondada"
+                        android:gravity="center"
+                        android:padding="11dp"
+                        app:iconifiedByDefault="false"
+                        app:queryBackground="@null"
+                        app:queryHint="Buscar" />
+                </LinearLayout>
 
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:background="#FFFFFF" />
 
-            <HorizontalScrollView
-                android:id="@+id/scrollTabs"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="12dp"
-                android:scrollbars="none">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:scrollbars="none"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp">
 
-                    <TextView
-                        android:id="@+id/tabTeste"
-                        style="@style/TabItem"
-                        android:text="Teste" />
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tabResultado"
-                        style="@style/TabItem"
-                        android:text="Resultado" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipTeste"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Teste" />
 
-                    <TextView
-                        android:id="@+id/tabFaculdades"
-                        style="@style/TabItemSelecionado"
-                        android:text="Faculdades" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipResultado"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Resultado" />
 
-                    <TextView
-                        android:id="@+id/tabExtra"
-                        style="@style/TabItem"
-                        android:text="Cursos" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipAreas"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Áreas em TI" />
 
-                </LinearLayout>
-            </HorizontalScrollView>
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipCursos"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cursos" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:background="#FFFFFF" />
 
 
             <LinearLayout

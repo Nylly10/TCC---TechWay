@@ -3,27 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DED7E0">
+    android:background="#101728"
+    android:padding="18dp"
+    android:orientation="vertical">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingStart="20dp"
-            android:paddingTop="56dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="32dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
+                <LinearLayout
+                    android:layout_width="49dp"
+                    android:layout_height="45dp"
+                    android:padding="11dp"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="9dp"
+                    android:background="@drawable/logo">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/conteiner_Barra2"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:layout_marginLeft="25dp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.SearchView
+
+                        android:id="@+id/barra_pesquisa2"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/barra_arredondada"
+                        android:gravity="center"
+                        android:padding="11dp"
+                        app:iconifiedByDefault="false"
+                        app:queryBackground="@null"
+                        app:queryHint="Buscar" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="9dp"
+            android:background="#FFFFFF" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,80 +64,74 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/btnMenu"
-                    android:layout_width="wrap_content"
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:text="☰"
-                    android:textColor="#2B2E3A"
-                    android:textSize="24sp" />
+                    android:scrollbars="none"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Curso Tecnico"
-                    android:textColor="#2B2E3A"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipTeste"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Teste" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipResultado"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Resultado" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipAreas"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Áreas em TI" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipCursos"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cursos" />
+
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
 
             </LinearLayout>
 
-
-            <HorizontalScrollView
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tabTeste"
-                        style="@style/TabItem"
-                        android:text="Teste" />
-
-                    <TextView
-                        android:id="@+id/tabResultado"
-                        style="@style/TabItem"
-                        android:text="Resultado" />
-
-                    <TextView
-                        android:id="@+id/tabFaculdades"
-                        style="@style/TabItem"
-                        android:text="Faculdades" />
-
-                    <TextView
-                        android:id="@+id/tabCursos"
-                        style="@style/TabItemSelecionado"
-                        android:text="Cursos" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
+                android:layout_height="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginEnd="9dp"
+                android:background="#FFFFFF" />
 
             <TextView
-                android:id="@+id/tagCursoTecnico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/bg_tag_curso"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:text="Curso Tecnico"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp" />
-
+                android:layout_margin="15dp"
+                android:layout_gravity="center"
+                android:text="Cursos Técnicos"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="25sp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_margin="15dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -139,12 +166,11 @@
 
             </LinearLayout>
 
-
-            <LinearLayout
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:background="@drawable/bg_card_dark_rounded"
+                android:background="@drawable/fundo_arredondado"
                 android:orientation="vertical"
                 android:paddingStart="20dp"
                 android:paddingTop="28dp"
@@ -156,9 +182,19 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Recomendações"
-                    android:textColor="#FFFFFF"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textColor="#673AB7"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_margin="2dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="12dp"
+                android:background="#5B2A86"
+                android:layout_margin="5dp"/>
+
 
                 <LinearLayout
                     android:id="@+id/listaCursos"
@@ -170,38 +206,49 @@
                     <TextView
                         android:id="@+id/curso1"
                         style="@style/BotaoCurso"
-                        android:text="Nome do curso" />
+                        android:text="Nome do curso"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/curso2"
                         style="@style/BotaoCurso"
-                        android:text="Nome do curso" />
+                        android:text="Nome do curso"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/curso3"
                         style="@style/BotaoCurso"
-                        android:text="Nome do curso" />
+                        android:text="Nome do curso"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/curso4"
                         style="@style/BotaoCurso"
-                        android:text="Nome do curso" />
+                        android:text="Nome do curso"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/curso5"
                         style="@style/BotaoCurso"
-                        android:text="Nome do curso" />
+                        android:text="Nome do curso"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
 
                     <TextView
                         android:id="@+id/curso6"
                         style="@style/BotaoCurso"
-                        android:text="Nome do curso" />
+                        android:text="Nome do curso"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

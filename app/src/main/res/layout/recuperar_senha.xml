@@ -82,7 +82,7 @@
                 android:layout_height="17dp"
                 android:text="Email"
                 android:textColor="#17172A"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
 
             <EditText
                 android:id="@+id/edtEmail"
