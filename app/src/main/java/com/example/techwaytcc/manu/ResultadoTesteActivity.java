@@ -31,9 +31,10 @@ public class ResultadoTesteActivity extends AppCompatActivity {
         btnRefazer = findViewById(R.id.btnRefazer);
 
         // Botões de cima
-        Navegacao.ligar(this, Navegacao.RESULTADO, findViewById(R.id.menuTeste), Navegacao.TESTE);
-        Navegacao.ligar(this, Navegacao.RESULTADO, findViewById(R.id.menuResultado), Navegacao.RESULTADO);
-        Navegacao.ligar(this, Navegacao.RESULTADO, findViewById(R.id.menuAreas), Navegacao.AREAS);
+        Navegacao.ligar(this, Navegacao.RESULTADO, findViewById(R.id.chipTeste), Navegacao.TESTE);
+        Navegacao.ligar(this, Navegacao.RESULTADO, findViewById(R.id.chipResultado), Navegacao.RESULTADO);
+        Navegacao.ligar(this, Navegacao.RESULTADO, findViewById(R.id.chipAreas), Navegacao.AREAS);
+        Navegacao.ligar(this, Navegacao.RESULTADO, findViewById(R.id.chipCursos), Navegacao.CURSOS);
 
         // RECEBER RESPOSTAS
         int[] respostas = getIntent().getIntArrayExtra("respostas");

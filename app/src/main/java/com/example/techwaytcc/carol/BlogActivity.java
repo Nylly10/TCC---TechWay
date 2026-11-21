@@ -24,7 +24,6 @@ public class BlogActivity extends AppCompatActivity {
         setContentView(R.layout.blog_main);
 
         // Inicializar componentes
-        btnMenu = findViewById(R.id.btnMenu);
         chipTeste = findViewById(R.id.chipTeste);
         chipResultado = findViewById(R.id.chipResultado);
         chipAreas = findViewById(R.id.chipAreas);

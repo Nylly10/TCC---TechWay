@@ -15,9 +15,9 @@ public class FaculdadesActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_faculdades);
 
-        Navegacao.ligar(this, Navegacao.FACULDADES, findViewById(R.id.tabTeste), Navegacao.TESTE);
-        Navegacao.ligar(this, Navegacao.FACULDADES, findViewById(R.id.tabResultado), Navegacao.RESULTADO);
-        Navegacao.ligar(this, Navegacao.FACULDADES, findViewById(R.id.tabFaculdades), Navegacao.FACULDADES);
-        Navegacao.ligar(this, Navegacao.FACULDADES, findViewById(R.id.tabExtra), Navegacao.CURSOS);
+        Navegacao.ligar(this, Navegacao.FACULDADES, findViewById(R.id.chipTeste), Navegacao.TESTE);
+        Navegacao.ligar(this, Navegacao.FACULDADES, findViewById(R.id.chipResultado), Navegacao.RESULTADO);
+        Navegacao.ligar(this, Navegacao.FACULDADES, findViewById(R.id.chipAreas), Navegacao.FACULDADES);
+        Navegacao.ligar(this, Navegacao.FACULDADES, findViewById(R.id.chipCursos), Navegacao.CURSOS);
     }
 }

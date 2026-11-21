@@ -62,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
         configurarCliques();
 
         // Botões de cima
-        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.menuTeste), Navegacao.TESTE);
-        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.menuResultado), Navegacao.RESULTADO);
-        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.menuAreas), Navegacao.AREAS);
+        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.chipTeste), Navegacao.TESTE);
+        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.chipResultado), Navegacao.RESULTADO);
+        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.chipAreas), Navegacao.AREAS);
+        Navegacao.ligar(this, Navegacao.TESTE, findViewById(R.id.chipCursos), Navegacao.CURSOS);
 
         atualizarTela();
     }

@@ -15,9 +15,9 @@ public class CursoActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_curso_tecnico);
 
-        Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.tabTeste), Navegacao.TESTE);
-        Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.tabResultado), Navegacao.RESULTADO);
-        Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.tabFaculdades), Navegacao.FACULDADES);
-        Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.tabCursos), Navegacao.CURSOS);
+        Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.chipTeste), Navegacao.TESTE);
+        Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.chipResultado), Navegacao.RESULTADO);
+        Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.chipAreas), Navegacao.FACULDADES);
+        Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.chipCursos), Navegacao.CURSOS);
     }
 }

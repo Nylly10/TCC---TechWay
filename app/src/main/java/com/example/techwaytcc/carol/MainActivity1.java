@@ -1,11 +1,11 @@
 package com.example.techwaytcc.carol;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -97,7 +97,7 @@ public class MainActivity1 extends AppCompatActivity {
                         resposta = response.errorBody().string();
                     }
 
-                    JSONObject json = new JSONObject(resposta);
+                    JSONObject json = new JSONObject(resposta.trim());
 
                     boolean sucesso = json.optBoolean("sucesso", false);
                     String mensagem = json.optString(
