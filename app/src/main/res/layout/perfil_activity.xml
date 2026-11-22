@@ -173,7 +173,7 @@
                         android:layout_height="120dp"
                         android:contentDescription="Foto de perfil"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/chatgpt_image_22_de_ago__de_2026__12_52_58"
+                        android:src="@drawable/foto_perfil"
                         app:shapeAppearanceOverlay="@style/FotoPerfilCircular" />
 
 

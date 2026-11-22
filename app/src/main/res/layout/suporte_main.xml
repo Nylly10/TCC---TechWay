@@ -6,10 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#101728"
-    android:padding="18dp"
     android:orientation="vertical"
     tools:context=".carol.MainActivity">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
 
     <!-- Essa parte é pra deixar  a logo e a barra de pesquisa ma horizontal, e  a barrinha em baixo    -->
     <LinearLayout
@@ -133,7 +138,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="150dp"
         android:paddingTop="37dp"
         android:paddingStart="28dp"
         android:background="@drawable/barra_arredondada2">
@@ -154,7 +159,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="289dp"
+        android:layout_height="270dp"
         android:layout_marginTop="42dp"
         android:paddingStart="28dp"
         android:orientation="vertical"
@@ -201,5 +206,10 @@
             />
 
     </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/menu"/>
 
 </LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:background="#DCE7FC"
+    >
+
+    <ImageButton
+        android:id="@+id/navHome"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_home"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="22dp"
+        android:scaleType="fitCenter"
+        android:tint="#5B2A86"
+        android:contentDescription="Início"/>
+
+    <ImageButton
+        android:id="@+id/navSupport"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/ic_support"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="22dp"
+        android:scaleType="fitCenter"
+        android:tint="#5B2A86"
+        android:contentDescription="Suporte"/>
+
+    <ImageButton
+        android:id="@+id/navProfile"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:src="@drawable/foto_perfil"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="22dp"
+        android:scaleType="fitCenter"
+        android:tint="#5B2A86"
+        android:contentDescription="Perfil"/>
+
+</LinearLayout>
