@@ -1,8 +1,8 @@
+
 package com.example.techwaytcc.nylly;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,24 +17,28 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.techwaytcc.R;
+import com.example.techwaytcc.Sessao;
+import com.example.techwaytcc.lari.bueno.api.ApiService;
+import com.example.techwaytcc.lari.bueno.api.RetrofitCliente;
+import com.example.techwaytcc.lari.bueno.model.PerfilDados;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AlterarDados extends AppCompatActivity {
 
-    // Campos de texto
     EditText edtNome;
     EditText edtDataNascimento;
     EditText edtEmail;
     EditText edtTelefone;
     EditText edtLocalizacao;
 
-    // Spinner
     Spinner spinnerGenero;
 
-    // Botões
     Button btnSalvarDados;
     Button btnAlterarFoto;
 
-    // Foto de perfil
     ImageView fotoPerfil;
 
     @Override
@@ -43,10 +47,6 @@ public class AlterarDados extends AppCompatActivity {
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.alterar_dados_activity);
-
-        // ==========================================
-        // CONECTANDO OS ELEMENTOS DO XML
-        // ==========================================
 
         edtNome = findViewById(R.id.edtNome);
         edtDataNascimento = findViewById(R.id.edtDataNascimento);
@@ -61,15 +61,9 @@ public class AlterarDados extends AppCompatActivity {
 
         fotoPerfil = findViewById(R.id.fotoPerfil);
 
-
-        // ==========================================
-        // CONFIGURANDO O SPINNER
-        // ==========================================
-
-        String[] opcoesGenero = {
-                "Feminino",
-                "Masculino"
-        };
+        // Spinner de gênero (mesmas opções da tela de perfil)
+        String[] opcoesGenero = getResources()
+                .getStringArray(R.array.opcoes_genero);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
@@ -83,39 +77,17 @@ public class AlterarDados extends AppCompatActivity {
 
         spinnerGenero.setAdapter(adapter);
 
-
-        // ==========================================
-        // CARREGAR DADOS JÁ SALVOS
-        // ==========================================
-
         carregarDados();
-
-
-        // ==========================================
-        // BOTÃO SALVAR
-        // ==========================================
 
         btnSalvarDados.setOnClickListener(v -> salvarDados());
 
-
-        // ==========================================
-        // BOTÃO ALTERAR FOTO
-        // ==========================================
-
-        btnAlterarFoto.setOnClickListener(v -> {
-
-            Toast.makeText(
-                    AlterarDados.this,
-                    "Função de alterar foto será adicionada depois.",
-                    Toast.LENGTH_SHORT
-            ).show();
-
-        });
-
-
-        // ==========================================
-        // AJUSTE DA TELA
-        // ==========================================
+        btnAlterarFoto.setOnClickListener(v ->
+                Toast.makeText(
+                        AlterarDados.this,
+                        "Função de alterar foto será adicionada depois.",
+                        Toast.LENGTH_SHORT
+                ).show()
+        );
 
         ViewCompat.setOnApplyWindowInsetsListener(
                 findViewById(R.id.alterarDados),
@@ -137,187 +109,170 @@ public class AlterarDados extends AppCompatActivity {
         );
     }
 
+    // Preenche os campos com os dados que estão no banco
+    private void carregarDados() {
 
-    // =================================================
-    // FUNÇÃO PARA SALVAR OS DADOS
-    // =================================================
+        edtNome.setText(Sessao.getNome(this));
+        edtEmail.setText(Sessao.getEmail(this));
 
+        int id = Sessao.getId(this);
+
+        if (id <= 0) {
+            return;
+        }
+
+        ApiService api = RetrofitCliente
+                .getClient()
+                .create(ApiService.class);
+
+        api.buscarPerfil(new PerfilDados(id)).enqueue(new Callback<PerfilDados>() {
+
+            @Override
+            public void onResponse(
+                    Call<PerfilDados> call,
+                    Response<PerfilDados> response) {
+
+                if (response.isSuccessful()
+                        && response.body() != null
+                        && response.body().isSucesso()) {
+
+                    PerfilDados p = response.body();
+
+                    edtNome.setText(p.getNome());
+                    edtEmail.setText(p.getEmail());
+                    edtDataNascimento.setText(p.getDataNascimento());
+                    edtTelefone.setText(p.getTelefone());
+                    edtLocalizacao.setText(p.getLocalizacao());
+
+                    selecionarGenero(p.getGenero());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PerfilDados> call, Throwable t) {
+                Toast.makeText(
+                        AlterarDados.this,
+                        "Não foi possível carregar seus dados",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        });
+    }
+
+    private void selecionarGenero(String genero) {
+
+        ArrayAdapter<?> adapter = (ArrayAdapter<?>) spinnerGenero.getAdapter();
+
+        for (int i = 0; i < adapter.getCount(); i++) {
+            if (String.valueOf(adapter.getItem(i)).equals(genero)) {
+                spinnerGenero.setSelection(i);
+                return;
+            }
+        }
+
+        spinnerGenero.setSelection(0);
+    }
+
+    // Valida e envia para o banco
     private void salvarDados() {
 
         String nome = edtNome.getText().toString().trim();
+        String dataNascimento = edtDataNascimento.getText().toString().trim();
+        String email = edtEmail.getText().toString().trim();
+        String telefone = edtTelefone.getText().toString().trim();
+        String localizacao = edtLocalizacao.getText().toString().trim();
 
-        String dataNascimento =
-                edtDataNascimento.getText().toString().trim();
-
-        String email =
-                edtEmail.getText().toString().trim();
-
-        String telefone =
-                edtTelefone.getText().toString().trim();
-
-        String localizacao =
-                edtLocalizacao.getText().toString().trim();
-
-        String genero =
-                spinnerGenero.getSelectedItem().toString();
-
-
-        // ==========================================
-        // VALIDAÇÃO DO NOME
-        // ==========================================
+        // "Selecione" (posição 0) vira vazio
+        String genero = spinnerGenero.getSelectedItemPosition() == 0
+                ? ""
+                : spinnerGenero.getSelectedItem().toString();
 
         if (nome.isEmpty()) {
-
             edtNome.setError("Digite seu nome");
             edtNome.requestFocus();
-
             return;
         }
 
-
-        // ==========================================
-        // VALIDAÇÃO DO E-MAIL
-        // ==========================================
-
-        if (email.isEmpty()) {
-
-            edtEmail.setError("Digite seu e-mail");
+        if (email.isEmpty()
+                || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            edtEmail.setError("Digite um e-mail válido");
             edtEmail.requestFocus();
-
             return;
         }
 
-
-        // ==========================================
-        // SALVAR NO SHAREDPREFERENCES
-        // ==========================================
-
-        SharedPreferences prefs =
-                getSharedPreferences("Usuario", MODE_PRIVATE);
-
-        SharedPreferences.Editor editor =
-                prefs.edit();
-
-
-        editor.putString("nome", nome);
-
-        editor.putString(
-                "dataNascimento",
-                dataNascimento
-        );
-
-        editor.putString(
-                "email",
-                email
-        );
-
-        editor.putString(
-                "telefone",
-                telefone
-        );
-
-        editor.putString(
-                "localizacao",
-                localizacao
-        );
-
-        editor.putString(
-                "genero",
-                genero
-        );
-
-        editor.apply();
-
-
-        // ==========================================
-        // MENSAGEM DE SUCESSO
-        // ==========================================
-
-        Toast.makeText(
-                AlterarDados.this,
-                "Dados alterados com sucesso!",
-                Toast.LENGTH_SHORT
-        ).show();
-
-
-        // ==========================================
-        // VOLTAR PARA O PERFIL
-        // ==========================================
-
-        Intent intent = new Intent(
-                AlterarDados.this,
-                Perfil.class
-        );
-
-        startActivity(intent);
-
-        finish();
-    }
-
-
-    // =================================================
-    // FUNÇÃO PARA CARREGAR OS DADOS SALVOS
-    // =================================================
-
-    private void carregarDados() {
-
-        SharedPreferences prefs =
-                getSharedPreferences("Usuario", MODE_PRIVATE);
-
-
-        String nome =
-                prefs.getString("nome", "");
-
-        String dataNascimento =
-                prefs.getString("dataNascimento", "");
-
-        String email =
-                prefs.getString("email", "");
-
-        String telefone =
-                prefs.getString("telefone", "");
-
-        String localizacao =
-                prefs.getString("localizacao", "");
-
-        String genero =
-                prefs.getString("genero", "Feminino");
-
-
-        // ==========================================
-        // COLOCAR OS DADOS NOS CAMPOS
-        // ==========================================
-
-        edtNome.setText(nome);
-
-        edtDataNascimento.setText(
-                dataNascimento
-        );
-
-        edtEmail.setText(email);
-
-        edtTelefone.setText(
-                telefone
-        );
-
-        edtLocalizacao.setText(
-                localizacao
-        );
-
-
-        // ==========================================
-        // SELECIONAR O GÊNERO NO SPINNER
-        // ==========================================
-
-        ArrayAdapter<String> adapter =
-                (ArrayAdapter<String>) spinnerGenero.getAdapter();
-
-        int posicao =
-                adapter.getPosition(genero);
-
-        if (posicao >= 0) {
-
-            spinnerGenero.setSelection(posicao);
+        if (!dataNascimento.isEmpty()
+                && !dataNascimento.matches("\\d{2}/\\d{2}/\\d{4}")) {
+            edtDataNascimento.setError("Use o formato 01/01/2000");
+            edtDataNascimento.requestFocus();
+            return;
         }
+
+        int id = Sessao.getId(this);
+
+        if (id <= 0) {
+            Toast.makeText(
+                    this,
+                    "Faça login novamente para salvar seus dados",
+                    Toast.LENGTH_LONG
+            ).show();
+            return;
+        }
+
+        btnSalvarDados.setEnabled(false);
+
+        ApiService api = RetrofitCliente
+                .getClient()
+                .create(ApiService.class);
+
+        PerfilDados dados = new PerfilDados(
+                id, nome, email, dataNascimento,
+                telefone, localizacao, genero
+        );
+
+        api.atualizarPerfil(dados).enqueue(new Callback<PerfilDados>() {
+
+            @Override
+            public void onResponse(
+                    Call<PerfilDados> call,
+                    Response<PerfilDados> response) {
+
+                btnSalvarDados.setEnabled(true);
+
+                if (response.isSuccessful() && response.body() != null) {
+
+                    PerfilDados resultado = response.body();
+
+                    Toast.makeText(
+                            AlterarDados.this,
+                            resultado.getMensagem(),
+                            Toast.LENGTH_LONG
+                    ).show();
+
+                    if (resultado.isSucesso()) {
+                        Sessao.salvar(AlterarDados.this, id, nome, email);
+                        finish(); // volta ao Perfil, que recarrega os dados
+                    }
+
+                } else {
+                    Toast.makeText(
+                            AlterarDados.this,
+                            "Erro no servidor (HTTP " + response.code() + ")",
+                            Toast.LENGTH_LONG
+                    ).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PerfilDados> call, Throwable t) {
+
+                btnSalvarDados.setEnabled(true);
+
+                Toast.makeText(
+                        AlterarDados.this,
+                        "Erro de conexão: " + t.getMessage(),
+                        Toast.LENGTH_LONG
+                ).show();
+            }
+        });
     }
 }

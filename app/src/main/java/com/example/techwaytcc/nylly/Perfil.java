@@ -1,5 +1,6 @@
 package com.example.techwaytcc.nylly;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -13,11 +14,25 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.techwaytcc.R;
+import com.example.techwaytcc.Sessao;
+import com.example.techwaytcc.lari.bueno.api.ApiService;
+import com.example.techwaytcc.lari.bueno.api.RetrofitCliente;
+import com.example.techwaytcc.lari.bueno.model.PerfilDados;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Perfil extends AppCompatActivity {
 
     ImageView fotoPerfil;
     Spinner spinnerGenero;
+
+    TextView tvNome;
+    TextView tvEmail;
+    TextView tvDataNascimento;
+    TextView tvTelefone;
+    TextView tvLocalizacao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +45,18 @@ public class Perfil extends AppCompatActivity {
         fotoPerfil = findViewById(R.id.fotoPerfil);
         spinnerGenero = findViewById(R.id.spinnerGenero);
 
-        TextView txtNome = findViewById(R.id.txtNome);
-        TextView txtEmail = findViewById(R.id.txtEmail);
-        TextView tvNome = findViewById(R.id.tvNome);
-        TextView tvEmail = findViewById(R.id.tvEmail);
+        tvNome = findViewById(R.id.tvNome);
+        tvEmail = findViewById(R.id.tvEmail);
+        tvDataNascimento = findViewById(R.id.tvDataNascimento);
+        tvTelefone = findViewById(R.id.tvTelefone);
+        tvLocalizacao = findViewById(R.id.tvLocalizacao);
 
-        txtNome.setText(R.string.nome_perfil);
-        txtEmail.setText(R.string.email_perfil);
-        tvNome.setText(R.string.nome_perfil);
-        tvEmail.setText(R.string.email_perfil);
+        // Mostra já o que está guardado do login
+        tvNome.setText(Sessao.getNome(this));
+        tvEmail.setText(Sessao.getEmail(this));
 
         // =====================================================
-        // SPINNER DE GÊNERO
+        // SPINNER DE GÊNERO (só mostra; quem altera é a outra tela)
         // =====================================================
         String[] opcoesGenero = getResources()
                 .getStringArray(R.array.opcoes_genero);
@@ -57,8 +72,14 @@ public class Perfil extends AppCompatActivity {
         );
 
         spinnerGenero.setAdapter(adapter);
+        spinnerGenero.setEnabled(false);
 
-        spinnerGenero.setAdapter(adapter);
+        // =====================================================
+        // BOTÃO ALTERAR DADOS
+        // =====================================================
+        findViewById(R.id.btnAlterarDados).setOnClickListener(v ->
+                startActivity(new Intent(Perfil.this, AlterarDados.class))
+        );
 
         // =====================================================
         // CONFIGURAÇÃO DA ÁREA DA TELA
@@ -81,5 +102,71 @@ public class Perfil extends AppCompatActivity {
                     return insets;
                 }
         );
+    }
+
+    // Recarrega os dados toda vez que a tela volta (depois de salvar)
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregarPerfil();
+    }
+
+    private void carregarPerfil() {
+
+        int id = Sessao.getId(this);
+
+        if (id <= 0) {
+            return;
+        }
+
+        ApiService api = RetrofitCliente
+                .getClient()
+                .create(ApiService.class);
+
+        api.buscarPerfil(new PerfilDados(id)).enqueue(new Callback<PerfilDados>() {
+
+            @Override
+            public void onResponse(
+                    Call<PerfilDados> call,
+                    Response<PerfilDados> response) {
+
+                if (response.isSuccessful()
+                        && response.body() != null
+                        && response.body().isSucesso()) {
+
+                    mostrar(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PerfilDados> call, Throwable t) {
+                // Sem conexão: continua mostrando o que já está na tela
+            }
+        });
+    }
+
+    private void mostrar(PerfilDados p) {
+
+        tvNome.setText(texto(p.getNome()));
+        tvEmail.setText(texto(p.getEmail()));
+        tvDataNascimento.setText(texto(p.getDataNascimento()));
+        tvTelefone.setText(texto(p.getTelefone()));
+        tvLocalizacao.setText(texto(p.getLocalizacao()));
+
+        // Seleciona o gênero salvo
+        ArrayAdapter<?> adapter = (ArrayAdapter<?>) spinnerGenero.getAdapter();
+
+        for (int i = 0; i < adapter.getCount(); i++) {
+            if (String.valueOf(adapter.getItem(i)).equals(p.getGenero())) {
+                spinnerGenero.setSelection(i);
+                return;
+            }
+        }
+
+        spinnerGenero.setSelection(0);
+    }
+
+    private String texto(String valor) {
+        return valor == null ? "" : valor;
     }
 }

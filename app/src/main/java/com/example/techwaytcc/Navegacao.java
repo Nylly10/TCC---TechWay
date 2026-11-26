@@ -5,11 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.techwaytcc.carol.BlogActivity;
+import com.example.techwaytcc.carol.SuporteActivity;
 import com.example.techwaytcc.lari.bueno.CursoActivity;
 import com.example.techwaytcc.lari.bueno.FaculdadesActivity;
-
+import com.example.techwaytcc.manu.RecuperarSenha;
 import com.example.techwaytcc.manu.ResultadoTesteActivity;
 import com.example.techwaytcc.nylly.AreaTI;
+import com.example.techwaytcc.nylly.Perfil;
 
 public class Navegacao {
 
@@ -18,10 +22,14 @@ public class Navegacao {
     public static final int AREAS = 2;
     public static final int CURSOS = 3;
     public static final int FACULDADES = 4;
+    public static final int PERFIL = 5;
+    public static final int RECUPERAR_SENHA = 6;
+    public static final int HOME = 7;
+    public static final int SUPORTE = 8;
 
     private static final String PREFS = "techway_prefs";
 
-    // Liga uma aba (botãozinho de cima) ao destino dela
+    // Liga uma aba ou botão ao destino dele
     public static void ligar(Activity atual, int telaAtual, View aba, int destino) {
 
         if (aba == null) {
@@ -29,6 +37,15 @@ public class Navegacao {
         }
 
         aba.setOnClickListener(v -> abrir(atual, telaAtual, destino));
+    }
+
+    // Liga o menu de baixo (Início, Suporte e Perfil).
+    // Telas que não têm o menu ignoram isso sem dar erro.
+    public static void configurarMenuInferior(Activity atual, int telaAtual) {
+
+        ligar(atual, telaAtual, atual.findViewById(R.id.navHome), HOME);
+        ligar(atual, telaAtual, atual.findViewById(R.id.navSupport), SUPORTE);
+        ligar(atual, telaAtual, atual.findViewById(R.id.navProfile), PERFIL);
     }
 
     private static void abrir(Activity atual, int telaAtual, int destino) {
@@ -41,6 +58,27 @@ public class Navegacao {
         Intent intent;
 
         switch (destino) {
+
+            case HOME:
+                intent = new Intent(atual, BlogActivity.class);
+                // Volta para o Blog que já está aberto, sem empilhar outro
+                intent.addFlags(
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                | Intent.FLAG_ACTIVITY_SINGLE_TOP
+                );
+                break;
+
+            case SUPORTE:
+                intent = new Intent(atual, SuporteActivity.class);
+                break;
+
+            case PERFIL:
+                intent = new Intent(atual, Perfil.class);
+                break;
+
+            case RECUPERAR_SENHA:
+                intent = new Intent(atual, RecuperarSenha.class);
+                break;
 
             case TESTE:
                 intent = new Intent(

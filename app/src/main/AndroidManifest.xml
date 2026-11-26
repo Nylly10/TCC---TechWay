@@ -67,6 +67,14 @@
         <activity
             android:name="com.example.techwaytcc.lari.bueno.FaculdadesActivity"
             android:exported="false" />
+        <activity
+            android:name="com.example.techwaytcc.carol.SuporteActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.techwaytcc.manu.RecuperarSenha"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

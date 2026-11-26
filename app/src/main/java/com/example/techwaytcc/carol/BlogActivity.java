@@ -1,7 +1,7 @@
 package com.example.techwaytcc.carol;
 
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +34,7 @@ public class BlogActivity extends AppCompatActivity {
 
         // Suporte
         navSupport.setOnClickListener(v -> {
-            Intent intent = new Intent(BlogActivity.this, MainActivity.class);
+            Intent intent = new Intent(BlogActivity.this, SuporteActivity.class);
             startActivity(intent);
         });
 
@@ -43,8 +43,6 @@ public class BlogActivity extends AppCompatActivity {
             Intent intent = new Intent(BlogActivity.this, Perfil.class);
             startActivity(intent);
         });
-
-
 
         // Inicializar Chips
         chipTeste = findViewById(R.id.chipTeste);

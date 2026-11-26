@@ -4,7 +4,7 @@ import com.example.techwaytcc.lari.bueno.model.LoginRequest;
 import com.example.techwaytcc.lari.bueno.model.LoginResponse;
 import com.example.techwaytcc.lari.bueno.model.CadastroRequest;
 import com.example.techwaytcc.lari.bueno.model.CadastroResponse;
-
+import com.example.techwaytcc.lari.bueno.model.PerfilDados;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -20,4 +20,12 @@ public interface ApiService {
     @Headers("Content-Type: application/json")
     @POST("techway/api/cadastrar.php")
     Call<ResponseBody> cadastrar(@Body CadastroRequest request);
+
+    @Headers("Content-Type: application/json")
+    @POST("techway/api/perfil_buscar.php")
+    Call<PerfilDados> buscarPerfil(@Body PerfilDados request);
+
+    @Headers("Content-Type: application/json")
+    @POST("techway/api/perfil_atualizar.php")
+    Call<PerfilDados> atualizarPerfil(@Body PerfilDados request);
 }

@@ -103,6 +103,17 @@
                 android:textColor="#2E1A6B"
                 android:textColorHint="#9C93B0"
                 android:textSize="16sp" />
+            <TextView
+                android:id="@+id/txtEsqueciSenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="end"
+                android:padding="4dp"
+                android:text="Esqueci minha senha"
+                android:textColor="#2E1A6B"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnEntrar"

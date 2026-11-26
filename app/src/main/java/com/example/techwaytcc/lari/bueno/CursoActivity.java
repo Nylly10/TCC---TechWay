@@ -19,5 +19,6 @@ public class CursoActivity extends AppCompatActivity {
         Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.chipResultado), Navegacao.RESULTADO);
         Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.chipAreas), Navegacao.FACULDADES);
         Navegacao.ligar(this, Navegacao.CURSOS, findViewById(R.id.chipCursos), Navegacao.CURSOS);
+        Navegacao.configurarMenuInferior(this, Navegacao.CURSOS);
     }
 }

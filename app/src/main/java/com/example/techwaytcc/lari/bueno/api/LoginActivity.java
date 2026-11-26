@@ -16,6 +16,8 @@ import com.example.techwaytcc.carol.BlogActivity;
 import com.example.techwaytcc.carol.MainActivity1;
 import com.example.techwaytcc.lari.bueno.model.LoginRequest;
 import com.example.techwaytcc.lari.bueno.model.LoginResponse;
+import com.example.techwaytcc.manu.RecuperarSenha;
+import com.example.techwaytcc.Sessao;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnEntrar;
     private TextView txtCliqueAqui;
 
+    private TextView txtEsqueciSenha;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         edtSenha = findViewById(R.id.edtSenha);
         btnEntrar = findViewById(R.id.btnEntrar);
         txtCliqueAqui = findViewById(R.id.txtCliqueAqui);
+        txtEsqueciSenha = findViewById(R.id.txtEsqueciSenha);
 
         // Botão de login
         btnEntrar.setOnClickListener(v -> fazerLogin());
@@ -48,6 +53,15 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(
                     LoginActivity.this,
                     MainActivity1.class
+            );
+
+            startActivity(intent);
+
+        });
+        txtEsqueciSenha.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    LoginActivity.this,
+                    RecuperarSenha.class
             );
 
             startActivity(intent);
@@ -98,6 +112,12 @@ public class LoginActivity extends AppCompatActivity {
                     LoginResponse resultado = response.body();
 
                     if (resultado.isSucesso()) {
+                        Sessao.salvar(
+                                LoginActivity.this,
+                                resultado.getId(),
+                                resultado.getNome(),
+                                email
+                        );
 
                         Toast.makeText(
                                 LoginActivity.this,

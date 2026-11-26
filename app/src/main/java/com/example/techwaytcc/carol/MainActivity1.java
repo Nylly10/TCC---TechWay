@@ -13,6 +13,7 @@ import com.example.techwaytcc.R;
 import com.example.techwaytcc.lari.bueno.api.ApiService;
 import com.example.techwaytcc.lari.bueno.api.RetrofitCliente;
 import com.example.techwaytcc.lari.bueno.model.CadastroRequest;
+import com.example.techwaytcc.Sessao;
 
 import org.json.JSONObject;
 
@@ -106,7 +107,7 @@ public class MainActivity1 extends AppCompatActivity {
                     );
 
                     if (sucesso) {
-
+                        Sessao.salvar(MainActivity1.this, json.optInt("id", 0), nome, email);
                         Toast.makeText(
                                 MainActivity1.this,
                                 "Cadastro realizado! Bem-vindo(a)!",
