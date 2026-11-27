@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        Navegacao.configurarMenuInferior(this, Navegacao.TESTE);
 
         criarPerguntas();
 

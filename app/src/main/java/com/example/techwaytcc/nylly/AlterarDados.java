@@ -16,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.techwaytcc.Navegacao;
 import com.example.techwaytcc.R;
 import com.example.techwaytcc.Sessao;
 import com.example.techwaytcc.lari.bueno.api.ApiService;
@@ -47,6 +48,7 @@ public class AlterarDados extends AppCompatActivity {
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.alterar_dados_activity);
+        Navegacao.configurarMenuInferior(this, Navegacao.PERFIL);
 
         edtNome = findViewById(R.id.edtNome);
         edtDataNascimento = findViewById(R.id.edtDataNascimento);

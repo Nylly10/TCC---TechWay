@@ -37,6 +37,7 @@ public class AreaTI extends AppCompatActivity {
         );
 
         setContentView(R.layout.area_ti_activity);
+        Navegacao.configurarMenuInferior(this, Navegacao.AREAS);
 
         View layoutPrincipal = findViewById(R.id.layoutPrincipal);
 

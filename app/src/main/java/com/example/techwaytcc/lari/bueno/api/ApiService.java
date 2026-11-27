@@ -10,7 +10,9 @@ import retrofit2.http.Body;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import okhttp3.ResponseBody;
-
+import com.example.techwaytcc.lari.bueno.model.CursosResponse;
+import retrofit2.http.GET;
+import com.example.techwaytcc.lari.bueno.model.FaculdadesResponse;
 public interface ApiService {
 
     @Headers("Content-Type: application/json")
@@ -28,4 +30,10 @@ public interface ApiService {
     @Headers("Content-Type: application/json")
     @POST("techway/api/perfil_atualizar.php")
     Call<PerfilDados> atualizarPerfil(@Body PerfilDados request);
+
+    @GET("techway/api/cursos_listar.php")
+    Call<CursosResponse> listarCursos();
+
+    @GET("techway/api/faculdades_listar.php")
+    Call<FaculdadesResponse> listarFaculdades();
 }

@@ -14,6 +14,7 @@ public class SuporteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.suporte_main);
+        Navegacao.configurarMenuInferior(this, Navegacao.SUPORTE);
 
         // Botões de cima (só funcionam se tiverem id no layout)
         Navegacao.ligar(this, Navegacao.SUPORTE, findViewById(R.id.chipTeste), Navegacao.TESTE);

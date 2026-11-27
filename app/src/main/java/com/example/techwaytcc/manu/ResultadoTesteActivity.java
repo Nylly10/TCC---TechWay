@@ -24,6 +24,7 @@ public class ResultadoTesteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_resultado_teste);
+        Navegacao.configurarMenuInferior(this, Navegacao.RESULTADO);
 
         // COMPONENTES DA TELA
         grafico = findViewById(R.id.graficoResultado);

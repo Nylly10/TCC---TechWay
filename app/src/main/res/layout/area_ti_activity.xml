@@ -465,5 +465,10 @@ O objetivo é unir usabilidade, estética e eficiência para atender às necessi
         </LinearLayout>
 
     </ScrollView>
-
+    <include
+        layout="@layout/menu"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginStart="-18dp"
+        android:layout_marginEnd="-18dp" />
 </LinearLayout>

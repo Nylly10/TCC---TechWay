@@ -359,5 +359,5 @@
         </LinearLayout>
 
     </ScrollView>
-
+    <include layout="@layout/menu" />
 </LinearLayout>

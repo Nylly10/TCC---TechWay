@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import com.example.techwaytcc.Navegacao;
 
 import com.example.techwaytcc.R;
 import com.example.techwaytcc.Sessao;
@@ -40,9 +41,16 @@ public class Perfil extends AppCompatActivity {
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.perfil_activity);
+        Navegacao.configurarMenuInferior(this, Navegacao.PERFIL);
 
         // Referências dos componentes
+
         fotoPerfil = findViewById(R.id.fotoPerfil);
+        // Menu de cima: leva para as outras telas
+        Navegacao.ligar(this, Navegacao.PERFIL, findViewById(R.id.chipTeste), Navegacao.TESTE);
+        Navegacao.ligar(this, Navegacao.PERFIL, findViewById(R.id.chipResultado), Navegacao.RESULTADO);
+        Navegacao.ligar(this, Navegacao.PERFIL, findViewById(R.id.chipAreas), Navegacao.AREAS);
+        Navegacao.ligar(this, Navegacao.PERFIL, findViewById(R.id.chipCursos), Navegacao.CURSOS);
         spinnerGenero = findViewById(R.id.spinnerGenero);
 
         tvNome = findViewById(R.id.tvNome);

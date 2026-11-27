@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="tw_fundo">#101728</color>
+    <color name="tw_superficie">#B7A9D7</color>
+    <color name="tw_primaria">#A285DC</color>
+    <color name="tw_texto">#2E1A6B</color>
+    <color name="tw_texto_suave">#4A3A7A</color>
+    <color name="tw_texto_claro">#B9B5CC</color>
+    <color name="tw_borda">#3A4259</color>
+    <color name="tw_card_escuro">#1D2740</color>
 </resources>
